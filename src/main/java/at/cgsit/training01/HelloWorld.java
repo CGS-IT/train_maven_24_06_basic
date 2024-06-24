@@ -1,6 +1,7 @@
 package at.cgsit.training01;
 
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -9,9 +10,20 @@ public class HelloWorld {
     static Logger logger = LogManager.getLogger(HelloWorld.class);
 
     public static void main( String[] args )  {
+        HelloWorld helloWorld = new HelloWorld();
 
-        new HelloWorld().extracted(args);
+        helloWorld.apacheCommonsLang();
 
+        helloWorld.extracted(args);
+
+    }
+
+    public void apacheCommonsLang() {
+
+        String[] array = {"a", "b", "c"};
+
+        String stringRes = ArrayUtils.toString(array);
+        logger.info("commons lang string: ", stringRes);
     }
 
     public String extracted(String[] args) {
