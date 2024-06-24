@@ -20,7 +20,7 @@ public class HelloWorld {
 
     public void apacheCommonsLang() {
 
-        String[] array = {"a", "b", "c"};
+        String[] array = {"a", "b", "c", "d"};
 
         String stringRes = ArrayUtils.toString(array);
         logger.info("commons lang string: ", stringRes);

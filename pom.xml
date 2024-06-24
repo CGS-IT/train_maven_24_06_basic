@@ -149,4 +149,65 @@
         </plugins>
     </build>
 
+    <!-- profiles enable different configurations and settings for various build environments -->
+    <profiles>
+        <profile>
+            <id>no-tests</id>
+            <properties>
+                <maven.test.skip>true</maven.test.skip>
+            </properties>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <environment>development</environment>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>3.13.0</version>
+                        <configuration>
+                            <showWarnings>true</showWarnings>
+                            <showDeprecation>true</showDeprecation>
+                            <failOnError>false</failOnError>
+                            <failOnWarning>false</failOnWarning>
+                        </configuration>
+                    </plugin>
+                    <!-- other plugins for development profile -->
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>prod</id>
+            <properties>
+                <environment>production</environment>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>3.13.0</version>
+                        <configuration>
+                            <showWarnings>false</showWarnings>
+                            <showDeprecation>true</showDeprecation>
+                            <failOnError>true</failOnError>
+                            <failOnWarning>true</failOnWarning>
+
+                        </configuration>
+                    </plugin>
+                    <!-- other plugins for production profile -->
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+
+
 </project>
